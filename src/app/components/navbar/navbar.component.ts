@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Aniversatiante } from 'src/app/shared/Interfaces/aniversariante';
 
 @Component({
@@ -6,8 +6,12 @@ import { Aniversatiante } from 'src/app/shared/Interfaces/aniversariante';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
 
   @Input() aniversatiante : Aniversatiante | any ={};
 
+  constructor(){ }
+
+  ngOnInit(): void {
+  }
 }

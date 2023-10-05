@@ -1,0 +1,36 @@
+body {
+  background-image: url(../img/bg-body.jpg);
+}
+
+.seu-recado {
+  background-color: #de5c9d !important;
+  color: white;
+  min-height: 250px;
+}
+
+footer {
+  background-color: #d63384 !important;
+  color: white;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-size: 15px;
+}
+
+.img-presente {
+  background-image: url(../img/presente.png);
+  background-color: transparent;
+  width: 350px;
+  height: 425px;
+  color: transparent;
+  margin: auto;
+}
+
+.title {
+  width: 50%;
+  padding: 5%;
+  border-radius: 5px;
+  background: rgba(240, 230, 220, .7);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+  color: #de5c9d;
+}

@@ -1,15 +1,16 @@
 import { Depoimento } from './depoimento';
-import { Fotos } from "./fotos";
+import { Foto } from "./foto";
 
 export interface Aniversatiante {
   id: string;
   titulo: string;
   nome: string;
   descricao: string;
-  data: Date;
-  horario: string;
+  dataAniversario: Date;
+  dataEvento: Date;
+  horarioEvento: string;
   endereco: string;
   localizacao: string;
-  fotos: Fotos[],
+  fotos: Foto[],
   depoimentos: Depoimento[]
 }

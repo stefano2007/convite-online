@@ -9,12 +9,14 @@ import { DepoimentosComponent } from './pages/depoimentos/depoimentos.component'
 import { ConfirmarPresencaComponent } from './pages/confirmar-presenca/confirmar-presenca.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', component: HomeComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent},
   { path: 'fotos', component: FotosComponent },
   { path: 'festa', component: FestaComponent },
   { path: 'presentes', component: PresentesComponent },
   { path: 'depoimentos', component: DepoimentosComponent },
-  { path: 'confirmar-presenca', component: ConfirmarPresencaComponent }
+  { path: 'confirmar-presenca', component: ConfirmarPresencaComponent },
+  { path: '**', component: ConfirmarPresencaComponent },
 ];
 
 @NgModule({

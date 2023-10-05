@@ -5,8 +5,9 @@
       "nome": "Helena Almeida",
       "titulo": "Helena Faz 4 Anos",
       "descricao": "Convido todos Heróis e Heróinas para a minha festa!",
-      "data":"2023-10-21",
-      "horario":"18:00",
+      "dataAniversario":"2023-10-12",
+      "dataEvento":"2023-10-21",
+      "horarioHorario":"18:00",
       "endereco":"José da Costa Monteiro n° 470 Vila Sônia",
       "localizacao":"endereco maps",
       "fotos":[
