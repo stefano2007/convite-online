@@ -1,27 +1,18 @@
-# ConviteOnline
+# Convite Online
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.
+Este projeto tem como objetivo criar um site em formato de convite online para os convidados visitar e confirma presença.
 
-## Development server
+* Deve ter informações da festa como: dia, horario, local (google maps).
+* Deve ter fotos do aniversariante (carrossel)
+* Deve ter sugestões de presente
+* Deve ter possibilidade de incluir deposimento ao aniversariante (deve ser permitido pelo administrador)
+* Pode ser confirmado presença pelo site e modificado até a data do aniversario
+* Talves adicionar opção de Video e musica
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Escopo do Projeto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+* Projeto criado em Angular
+* Inicialmente o projeto deve usar o API fake com informações do salva no json-server e depois alterado por um API.
+* Ao confirma presença ou não deve ser salvo em LocalStore as alterações.
+* Depois da primeira versão incluir temas customizados.
