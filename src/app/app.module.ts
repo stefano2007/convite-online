@@ -3,16 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { FestaComponent } from './components/festa/festa.component';
-import { PresentesComponent } from './components/presentes/presentes.component';
-import { FotosComponent } from './components/fotos/fotos.component';
-import { DepoimentosComponent } from './components/depoimentos/depoimentos.component';
-import { ConfirmarPresencaComponent } from './components/confirmar-presenca/confirmar-presenca.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './pages/home/home.component';
+import { FestaComponent } from './pages/festa/festa.component';
+import { PresentesComponent } from './pages/presentes/presentes.component';
+import { FotosComponent } from './pages/fotos/fotos.component';
+import { DepoimentosComponent } from './pages/depoimentos/depoimentos.component';
+import { ConfirmarPresencaComponent } from './pages/confirmar-presenca/confirmar-presenca.component';
 
 @NgModule({
   declarations: [
