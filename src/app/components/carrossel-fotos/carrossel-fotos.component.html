@@ -1,0 +1,29 @@
+<div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+<!--
+  <div class="carousel-indicators" >
+    <button *ngFor="let foto of fotos; index as i" type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+  </div>
+-->
+  <div class="carousel-inner">
+    <div class="carousel-item text-center" *ngFor="let foto of fotos; index as i" [ngClass]="i == 0 ? 'active':''">
+      <img class="img-fluid" [src]="foto.src" [alt]="foto.titulo">
+      <div class="container">
+        <div class="carousel-caption text-center text-dark">
+          <h1>{{ foto.titulo }}</h1>
+          <p class="opacity-75">{{ foto.subtitulo }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

@@ -5,6 +5,7 @@ export interface Aniversatiante {
   id: string;
   titulo: string;
   nome: string;
+  apelido: string;
   descricao: string;
   dataAniversario: Date;
   dataEvento: Date;

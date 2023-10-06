@@ -1,6 +1,7 @@
 export interface Foto {
   id: number;
-  urlImagem: string;
-  descricao: string;
+  src: string;
+  titulo: string;
+  subtitulo: string;
   ordem: number;
 }

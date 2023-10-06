@@ -1,15 +1,27 @@
-<div class="container">
-    <div name="carrossel-imagens"></div>
+<div class="my-4 p-5 text-center introducao">
+  <div class="container py-5 ">
+    <h1 class="text-body-emphasis">{{ aniversatiante.titulo }}</h1>
+    <h2 class="col-lg-8 mx-auto lead">
+      {{ aniversatiante.descricao }}
+    </h2>
+  </div>
+</div>
 
-    <div name="data-evento"></div>
 
-    <div name="local-evento"></div>
+<div name="carrossel-imagens">
+  <app-carrossel-fotos [fotos]="aniversatiante.fotos"></app-carrossel-fotos>
+</div>
 
-    <div name="lista-presentes" class="row">
-      <div class="col-md-6">
+<div name="data-evento"></div>
+
+<div name="local-evento"></div>
+
+<div name="lista-presentes" class="container py-5">
+    <div class="row">
+      <div class="col-md-5">
         <div class="img-presente"></div>
       </div>
-      <div class="col-md-6 d-flex align-content-end flex-wrap">
+      <div class="col-md-7 d-flex justify-content-center align-items-center">
         <div class="title">
           <h2>Meu Aniversário esta chegando!</h2>
           <h2>
@@ -19,15 +31,32 @@
       </div>
     </div>
 </div>
-<div name="seu-recado" class="seu-recado mt-5">
+<div name="seu-recado" class="seu-recado p-5">
    <div class="container">
-    <div class="row">
+    <div class="row mx-10p">
       <div class="col-md-6">
-        <h1>Deixe Seu Recado</h1>
+        <div class="mx-5">
+          <h1>Deixe um</h1>
+          <h1>Recadinho</h1>
+          <h1>para {{ aniversatiante.apelido }}</h1>
+        </div>
       </div>
       <div class="col-md-6">
+        <form>
+          <div class="form-group">
+            <label for="nomeRecado">Nome</label>
+            <input type="text" class="form-control" id="nomeRecado" >
+          </div>
+          <div class="form-group">
+            <label for="emailRecado">Email</label>
+            <input type="email" class="form-control" id="emailRecado" placeholder="name@example.com">
+          </div>
+          <div class="form-group">
+            <label for="mensagemRecado">Mensagem</label>
+            <textarea class="form-control" id="mensagemRecado" rows="5" placeholder="name@example.com"></textarea>
+          </div>
+        </form>
       </div>
     </div>
    </div>
 </div>
-

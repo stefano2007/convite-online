@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from '@angular/common/http';
-
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +14,7 @@ import { DepoimentosComponent } from './pages/depoimentos/depoimentos.component'
 import { ConfirmarPresencaComponent } from './pages/confirmar-presenca/confirmar-presenca.component';
 import { Erro404Component } from './pages/erro404/erro404.component';
 import { FotoCardComponent } from './components/foto-card/foto-card.component';
+import { CarrosselFotosComponent } from './components/carrossel-fotos/carrossel-fotos.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +28,13 @@ import { FotoCardComponent } from './components/foto-card/foto-card.component';
     DepoimentosComponent,
     ConfirmarPresencaComponent,
     Erro404Component,
-    FotoCardComponent
+    FotoCardComponent,
+    CarrosselFotosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
