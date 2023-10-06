@@ -5,7 +5,7 @@
   </div>
 -->
   <div class="carousel-inner">
-    <div class="carousel-item text-center" *ngFor="let foto of fotos; index as i" [ngClass]="i == 0 ? 'active':''">
+    <div class="carousel-item text-center" *ngFor="let foto of fotos; index as i" [ngClass]="i == 0 ? 'active':''" data-bs-interval="3000">
       <img class="img-fluid" [src]="foto.src" [alt]="foto.titulo">
       <div class="container">
         <div class="carousel-caption text-center text-dark">

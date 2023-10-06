@@ -7,7 +7,6 @@
   </div>
 </div>
 
-
 <div name="carrossel-imagens">
   <app-carrossel-fotos [fotos]="aniversatiante.fotos"></app-carrossel-fotos>
 </div>
@@ -16,11 +15,8 @@
 
 <div name="local-evento"></div>
 
-<div name="lista-presentes" class="container py-5">
+<div name="lista-presentes" class="container py-3">
     <div class="row">
-      <div class="col-md-5">
-        <div class="img-presente"></div>
-      </div>
       <div class="col-md-7 d-flex justify-content-center align-items-center">
         <div class="title">
           <h2>Meu Aniversário esta chegando!</h2>
@@ -28,6 +24,9 @@
             Aproveite e escolha um presente que selecionamos.
           </h2>
         </div>
+      </div>
+      <div class="col-md-5">
+        <div class="img-presente"></div>
       </div>
     </div>
 </div>
@@ -45,15 +44,18 @@
         <form>
           <div class="form-group">
             <label for="nomeRecado">Nome</label>
-            <input type="text" class="form-control" id="nomeRecado" >
+            <input type="text" class="form-control" id="nomeRecado" placeholder="Seu nome" required >
           </div>
           <div class="form-group">
             <label for="emailRecado">Email</label>
-            <input type="email" class="form-control" id="emailRecado" placeholder="name@example.com">
+            <input type="email" class="form-control" id="emailRecado" placeholder="name@example.com" required>
           </div>
           <div class="form-group">
             <label for="mensagemRecado">Mensagem</label>
-            <textarea class="form-control" id="mensagemRecado" rows="5" placeholder="name@example.com"></textarea>
+            <textarea class="form-control" id="mensagemRecado" rows="5" placeholder="deixe sua mensagem aqui... " required></textarea>
+          </div>
+          <div class="d-grid pt-3">
+            <button class="btn btn-pink" type="button">Enviar</button>
           </div>
         </form>
       </div>

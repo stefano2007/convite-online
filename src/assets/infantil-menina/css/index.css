@@ -1,3 +1,26 @@
+
+:root {
+  --cor-rosa-claro: #de5c9d;
+  --cor-rosa-padrao: #d63384;
+}
+/* customizar botões */
+.btn-pink {
+  --bs-btn-color: #fff!important;
+  --bs-btn-bg: var(--cor-rosa-padrao)!important;
+  --bs-btn-border-color: var(--cor-rosa-padrao)!important;
+  --bs-btn-hover-color: #fff!important;
+  --bs-btn-hover-bg: var(--cor-rosa-claro)!important;
+  --bs-btn-hover-border-color: var(--cor-rosa-claro)!important;
+  --bs-btn-focus-shadow-rgb: 49,132,253!important;
+  --bs-btn-active-color: #fff!important;
+  --bs-btn-active-bg: var(--cor-rosa-claro)!important;
+  --bs-btn-active-border-color: var(--cor-rosa-claro)!important;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125)!important;
+  --bs-btn-disabled-color: #fff!important;
+  --bs-btn-disabled-bg: var(--cor-rosa-padrao)!important;
+  --bs-btn-disabled-border-color: var(--cor-rosa-padrao)!important;
+}
+
 body {
   background-image: url(../img/bg-body.jpg);
 }
