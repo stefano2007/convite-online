@@ -8,9 +8,9 @@
       "descricao": "Convido todos Heróis e Heróinas para a minha festa!",
       "dataAniversario":"2023-10-12",
       "dataEvento":"2023-10-21",
-      "horarioHorario":"18:00",
+      "horarioEvento":"18:00",
       "endereco":"José da Costa Monteiro n° 470 Vila Sônia",
-      "localizacao":"endereco maps",
+      "localizacaoUrl":"https://maps.google.com/maps?hl=pt-br&amp;q=jose da costa monteiro 470&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed",
       "fotos":[
         { "id": 1, "src": "/assets/img/imagem1.jpg", "titulo":"Titulo 1", "subtitulo":"Subtitulo 1", "ordem": 1 },
         { "id": 2, "src": "/assets/img/imagem2.jpeg", "titulo":"Titulo 2", "subtitulo":"Subtitulo 2", "ordem": 2 },
@@ -21,5 +21,11 @@
         { "id": 1, "autor":"Stefano" , "data": "2023-10-04 22:08:00", "depoimento": "Minha filha, meu amor! Te amo Filha."}
       ]
     }
+  ],
+  "fotos":[
+    { "id": 1, "src": "/assets/img/imagem1.jpg", "titulo":"Titulo 1", "subtitulo":"Subtitulo 1", "ordem": 1 },
+    { "id": 2, "src": "/assets/img/imagem2.jpeg", "titulo":"Titulo 2", "subtitulo":"Subtitulo 2", "ordem": 2 },
+    { "id": 3, "src": "/assets/img/imagem3.jpeg", "titulo":"Titulo 3", "subtitulo":"Subtitulo 3", "ordem": 3 },
+    { "id": 4, "src": "/assets/img/imagem4.jpeg", "titulo":"Titulo 4", "subtitulo":"Subtitulo 4", "ordem": 4 }
   ]
 }

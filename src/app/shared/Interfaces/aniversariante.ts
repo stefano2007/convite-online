@@ -11,7 +11,7 @@ export interface Aniversatiante {
   dataEvento: Date;
   horarioEvento: string;
   endereco: string;
-  localizacao: string;
+  localizacaoUrl: string;
   fotos: Foto[],
   depoimentos: Depoimento[]
 }

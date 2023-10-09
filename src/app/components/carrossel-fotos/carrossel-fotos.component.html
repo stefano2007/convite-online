@@ -8,7 +8,7 @@
     <div class="carousel-item text-center" *ngFor="let foto of fotos; index as i" [ngClass]="i == 0 ? 'active':''" data-bs-interval="3000">
       <img class="img-fluid" [src]="foto.src" [alt]="foto.titulo">
       <div class="container">
-        <div class="carousel-caption text-center text-dark">
+        <div class="carousel-caption text-center">
           <h1>{{ foto.titulo }}</h1>
           <p class="opacity-75">{{ foto.subtitulo }}</p>
         </div>
