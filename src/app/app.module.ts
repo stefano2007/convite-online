@@ -15,6 +15,7 @@ import { ConfirmarPresencaComponent } from './pages/confirmar-presenca/confirmar
 import { Erro404Component } from './pages/erro404/erro404.component';
 import { FotoCardComponent } from './components/foto-card/foto-card.component';
 import { CarrosselFotosComponent } from './components/carrossel-fotos/carrossel-fotos.component';
+import { RespondaPresencaComponent } from './components/responda-presenca/responda-presenca.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CarrosselFotosComponent } from './components/carrossel-fotos/carrossel-
     ConfirmarPresencaComponent,
     Erro404Component,
     FotoCardComponent,
-    CarrosselFotosComponent
+    CarrosselFotosComponent,
+    RespondaPresencaComponent
   ],
   imports: [
     BrowserModule,

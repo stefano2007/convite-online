@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Aniversatiante } from 'src/app/shared/Interfaces/aniversariante';
+import { Aniversariante } from 'src/app/shared/Interfaces/aniversariante';
 import { AniversarianteService } from 'src/app/shared/services/aniversariante.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { AniversarianteService } from 'src/app/shared/services/aniversariante.se
 export class HomeComponent implements OnInit {
 
   perquisa: string = "HelenaFaz4Anos";
-  aniversatiante: Aniversatiante | any = {};
+  aniversariante: Aniversariante | any = {};
   constructor(
     private service: AniversarianteService
   ){
@@ -19,8 +19,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.service.obterAniversariante(this.perquisa)
       .subscribe({
-        next: (response: Aniversatiante) => {
-          this.aniversatiante = response;
+        next: (response: Aniversariante) => {
+          this.aniversariante = response;
           console.log('response', response);
         },
         error: (error) => {

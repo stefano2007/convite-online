@@ -1,4 +1,18 @@
-
+/*
+@font-face {
+  font-family: SHINTIA_SCRIPT;src:url("/assets/fonts/Shintia_Script.otf") format("opentype");
+}
+@font-face {
+  font-family: GREAT_VIBES_REGULAR;src:url("/assets/fonts/GreatVibes-Regular.ttf") format("opentype");
+}
+*/
+@font-face {
+  font-family: MAIANDRA_GD;src:url("/assets/fonts/MAIAN.otf") format("opentype");
+}
+body {
+  background-image: url(../img/bg-body.jpg);
+  font-family: "MAIANDRA_GD",Verdana, Helvetica, Arial, sans-serif !important;
+}
 :root {
   --cor-rosa-claro: #de5c9d;
   --cor-rosa-padrao: #d63384;
@@ -21,30 +35,28 @@
   --bs-btn-disabled-border-color: var(--cor-rosa-claro)!important;
 }
 
-body {
-  background-image: url(../img/bg-body.jpg);
+hr{
+  border-top: 2px solid !important;
+  color: var(--cor-rosa-padrao) !important;
 }
 
 .introducao {
   background-color: rgba(223,190,221, .7) !important;
   box-shadow: 0 0 8px rgba(0, 0, 0, .7);
 }
-
-.seu-recado {
-  background-color: #de5c9d !important;
+.rodape-rosa-claro {
+  background-color: var(--cor-rosa-claro) !important;
   color: white;
   min-height: 250px;
 }
-
 footer {
-  background-color: #d63384 !important;
+  background-color: var(--cor-rosa-padrao) !important;
   color: white;
   position: relative;
   bottom: 0;
   width: 100%;
   font-size: 15px;
 }
-
 .img-presente {
   background-image: url(../img/presente.png);
   background-color: transparent;
@@ -53,22 +65,42 @@ footer {
   color: transparent;
   margin: auto;
 }
-
 .title {
-  width: 50%;
+  width: 60%;
   padding: 5%;
   margin: 40px;
   border-radius: 5px;
   background: rgba(240, 230, 220, .7);
   box-shadow: 0 0 8px rgba(0, 0, 0, .7);
-  color: var(--cor-rosa-claro);
 }
-
 .carousel-caption {
   background: rgba(0,0,0, .4);
 }
-
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   padding: 25px! important;
+}
+.texto-rosa {
+  color: var(--cor-rosa-padrao) !important;
+}
+.texto-rosa-claro {
+  color: var(--cor-rosa-claro) !important;
+}
+.fonte-grande {
+  font-size: 70px;
+}
+.fonte-media {
+  font-size: 45px;
+}
+
+@media (max-width: 992px) {
+  .title {
+    width: auto;
+  }
+  .fonte-grande{
+    font-size: 60px;
+  }
+  .fonte-media {
+    font-size: 35px;
+  }
 }

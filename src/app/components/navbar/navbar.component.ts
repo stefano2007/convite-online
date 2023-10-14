@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Aniversatiante } from 'src/app/shared/Interfaces/aniversariante';
+import { Aniversariante } from 'src/app/shared/Interfaces/aniversariante';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +8,7 @@ import { Aniversatiante } from 'src/app/shared/Interfaces/aniversariante';
 })
 export class NavbarComponent implements OnInit{
 
-  @Input() aniversatiante : Aniversatiante | any ={};
+  @Input() aniversariante : Aniversariante | any ={};
 
   constructor(){ }
 

@@ -1,3 +1,9 @@
 img {
   max-height: 500px;
 }
+
+.carousel-item {
+  height: 600px;
+  background-size: cover;
+  background-position: center center;
+}

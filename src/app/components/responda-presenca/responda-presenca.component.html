@@ -1,0 +1,38 @@
+<div class="card">
+  <div class="card-header">
+    Por Favor, Confirme sua Presença.
+  </div>
+  <div class="card-body">
+    <div class="row text-center">
+      <div class="col-md-6">
+        <button name="btn-confirmar-presenca" class="btn btn-outline-primary" (click)="setaMarcarPresenca(true)" [ngClass]="{'active' : marcaPresenca}">
+          <img src="/assets/img/emo-feliz.png" width="60px" height="60px" /> Confirmar Presença
+        </button>
+      </div>
+      <div class="col-md-6">
+        <button name="btn-confirmar-presenca" class="btn btn-outline-danger" (click)="setaMarcarPresenca(false)" [ngClass]="{'active' : !  marcaPresenca}">
+          <img src="/assets/img/emo-triste.png" width="60px" height="60px" /> Informar Ausência
+        </button>
+      </div>
+    </div>
+    <form class="row">
+      <div class="form-group">
+        <label for="qtdAdultos">Adultos</label>
+        <input type="number" class="form-control" id="qtdAdultos" step="1" min="0" max="10" value="0" required >
+      </div>
+      <div class="form-group">
+        <label for="qtdCriancas">Crianças</label>
+        <input type="number" class="form-control" id="qtdCriancas" step="1" min="0" max="10" value="0" required>
+      </div>
+      <div class="form-group">
+        <label for="mensagemRecado">Mensagem</label>
+        <textarea class="form-control" id="mensagemRecado" rows="5" placeholder="Informe os nomes e caso criança a idade." required></textarea>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" *ngIf="marcaPresenca">Confirmar Presença</button>
+        <button class="btn btn-danger" *ngIf="!marcaPresenca">Informar Ausência</button>
+        <button class="btn btn-outline-info mx-3">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
