@@ -15,23 +15,24 @@
         </button>
       </div>
     </div>
-    <form class="row">
+    <form class="row" [formGroup]="formResposta" (ngSubmit)="onSubmit()">
+      <input type="hidden" formControlName="id" >
       <div class="form-group">
         <label for="qtdAdultos">Adultos</label>
-        <input type="number" class="form-control" id="qtdAdultos" step="1" min="0" max="10" value="0" required >
+        <input type="number" class="form-control" id="qtdAdultos" step="1" min="0" max="10" value="0" formControlName="qtdAdultos" >
       </div>
       <div class="form-group">
         <label for="qtdCriancas">Crianças</label>
-        <input type="number" class="form-control" id="qtdCriancas" step="1" min="0" max="10" value="0" required>
+        <input type="number" class="form-control" id="qtdCriancas" step="1" min="0" max="10" value="0" formControlName="qtdCriancas">
       </div>
       <div class="form-group">
         <label for="mensagemRecado">Mensagem</label>
-        <textarea class="form-control" id="mensagemRecado" rows="5" placeholder="Informe os nomes e caso criança a idade." required></textarea>
+        <textarea class="form-control" id="mensagemRecado" rows="5" placeholder="Informe os nomes e caso criança a idade." formControlName="mensagem"></textarea>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary" *ngIf="marcaPresenca">Confirmar Presença</button>
-        <button class="btn btn-danger" *ngIf="!marcaPresenca">Informar Ausência</button>
-        <button class="btn btn-outline-info mx-3">Cancelar</button>
+        <button class="btn btn-primary" *ngIf="marcaPresenca" [disabled]="!formResposta.valid">Confirmar Presença</button>
+        <button class="btn btn-danger" *ngIf="!marcaPresenca" [disabled]="!formResposta.valid">Informar Ausência</button>
+        <a class="btn btn-outline-info mx-3">Cancelar</a>
       </div>
     </form>
   </div>

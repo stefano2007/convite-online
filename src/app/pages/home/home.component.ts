@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit {
       .subscribe({
         next: (response: Aniversariante) => {
           this.aniversariante = response;
-          console.log('response', response);
         },
         error: (error) => {
           console.error(error);
