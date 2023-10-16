@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup , FormBuilder, Validators } from '@angular/forms';
 import { ConfirmaPresenca } from 'src/app/shared/Interfaces/confirmaPresenca';
 import { MessageService, MessageType } from 'src/app/shared/services/mensagem.service';
+import { Aniversariante } from 'src/app/shared/Interfaces/aniversariante';
 
 @Component({
   selector: 'app-responda-presenca',
@@ -11,8 +12,10 @@ import { MessageService, MessageType } from 'src/app/shared/services/mensagem.se
 })
 export class RespondaPresencaComponent implements OnInit{
 
+aniversariante : Aniversariante | any = {};
+perquisa: string = "HelenaFaz4Anos";
+resposta : ConfirmaPresenca | any = {}
 marcaPresenca : boolean = true;
-
 formResposta: FormGroup = new FormGroup({});
 
 constructor(
@@ -23,16 +26,29 @@ constructor(
 campoLocalStorage:string = 'resposta'
 
 ngOnInit(): void {
-
   let respostaSalva = localStorage.getItem(this.campoLocalStorage)
 
+  this.popularAniversariante();
   if(respostaSalva){
-    let resposta = JSON.parse(respostaSalva);
-    this.marcaPresenca = resposta.marcaPresenca;
-    this.createForm(resposta);
+    this.resposta = JSON.parse(respostaSalva);
+    this.marcaPresenca = this.resposta.marcaPresenca;
+    this.createForm(this.resposta);
     return;
   }
   this.createForm(new ConfirmaPresenca());
+}
+
+popularAniversariante(){
+  this.aniversarianteService.obterAniversariante(this.perquisa)
+      .subscribe({
+        next: (response: Aniversariante) => {
+          this.aniversariante = response;
+        },
+        error: (error) => {
+          console.error(error);
+        },
+        complete: () => {}
+      });
 }
 
 setaMarcarPresenca(marca: boolean){
@@ -52,6 +68,7 @@ onSubmit() {
   if(this.formResposta.valid){
     let confirmaPresenca : ConfirmaPresenca = {...this.formResposta.value }
     confirmaPresenca.marcaPresenca = this.marcaPresenca;
+    confirmaPresenca.dataResposta = new Date();
     this.aniversarianteService
       .salvarRespostaPresenca(confirmaPresenca)
       .subscribe({
@@ -69,6 +86,11 @@ onSubmit() {
         }
       });
   }
+}
+
+get PodeConfirmacaoPresenca()
+{
+  return new Date(this.aniversariante.dataLimiteConfirmaPresenca) > new Date();
 }
 
 }

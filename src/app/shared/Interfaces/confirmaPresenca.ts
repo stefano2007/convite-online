@@ -4,4 +4,5 @@ export class ConfirmaPresenca {
   qtdCriancas: number = 0;
   mensagem: string = '';
   marcaPresenca: boolean = true;
+  dataResposta: Date = new Date();
 }

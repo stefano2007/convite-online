@@ -1,20 +1,22 @@
 <div class="container">
-  <h1 class="text-center fonte-grande texto-rosa">Festa</h1>
+  <h1 class="text-center fonte-grande texto-rosa">A Festa</h1>
   <hr />
+  <h1 class="text-center fonte-media texto-rosa-claro"> {{ aniversariante.informativos }}</h1>
+
   <div class="text-center">
     <img class="img-fluid rounded" [src]="aniversariante.imagemConvite" alt="Convite">
   </div>
 
-  <div class="pt-5" name="data-evento texto-rosa">
-    <h1 class="text-center fonte-grande">Horário do evento</h1>
+  <div class="pt-5" name="data-evento">
+    <h1 class="text-center fonte-grande texto-rosa">Horário do evento</h1>
     <hr />
-    <h1 class="text-center fonte-grande texto-rosa"> {{ aniversariante.diaSemanaEvento}} - {{aniversariante.dataEvento | date: 'dd/MM/YYYY' }} às {{ aniversariante.horarioEvento }}</h1>
+    <h1 class="text-center fonte-grande texto-rosa-claro"> {{ aniversariante.diaSemanaEvento}} - {{aniversariante.dataEvento | date: 'dd/MM/yyyy' }} às {{ aniversariante.horarioEvento }}</h1>
   </div>
 
   <div class="pt-5" name="local-evento">
-    <h1 class="text-center fonte-grande">Local</h1>
+    <h1 class="text-center fonte-grande texto-rosa">Local</h1>
     <hr />
-    <h3 class="text-center pt-4 texto-rosa">{{ aniversariante.endereco }}</h3>
+    <h3 class="text-center pt-4 texto-rosa-claro">{{ aniversariante.endereco }}</h3>
     <div class="d-flex justify-content-center p-5">
       <iframe
         width="100%"

@@ -13,7 +13,7 @@
   </div>
 
   <div class="pt-5" name="fotos">
-    <h1 class="text-center fonte-grande">Fotos</h1>
+    <h1 class="text-center fonte-grande texto-rosa">Fotos</h1>
     <hr />
     <div name="fotos" class="row d-flex justify-content-center text-center">
       <div class="col-xl-6 col-xxl-4 pt-4" *ngFor="let foto of aniversariante.fotosDestaque">
@@ -25,16 +25,22 @@
     </div>
   </div>
 
-  <div class="pt-5" name="data-evento texto-rosa">
-    <h1 class="text-center fonte-grande">Horário do evento</h1>
+  <div class="pt-5" name="data-evento">
+    <h1 class="text-center fonte-grande texto-rosa">Informações</h1>
     <hr />
-    <h1 class="text-center fonte-grande texto-rosa"> {{ aniversariante.diaSemanaEvento}} - {{aniversariante.dataEvento | date: 'dd/MM/YYYY' }} às {{ aniversariante.horarioEvento }}</h1>
+    <h1 class="text-center fonte-media texto-rosa-claro"> {{ aniversariante.informativos }}</h1>
+  </div>
+
+  <div class="pt-5" name="data-evento">
+    <h1 class="text-center fonte-grande texto-rosa">Horário do evento</h1>
+    <hr />
+    <h1 class="text-center fonte-grande texto-rosa-claro"> {{ aniversariante.diaSemanaEvento}} - {{aniversariante.dataEvento | date: 'dd/MM/yyyy' }} às {{ aniversariante.horarioEvento }}</h1>
   </div>
 
   <div class="pt-5" name="local-evento">
-    <h1 class="text-center fonte-grande">Local</h1>
+    <h1 class="text-center fonte-grande texto-rosa">Local</h1>
     <hr />
-    <h3 class="text-center pt-4 texto-rosa">{{ aniversariante.endereco }}</h3>
+    <h3 class="text-center pt-4 texto-rosa-claro">{{ aniversariante.endereco }}</h3>
     <div class="row">
       <iframe
         width="100%"
@@ -53,9 +59,8 @@
         <div class="col-md-7 d-flex justify-content-center align-items-center texto-rosa-claro">
           <div class="title text-center">
             <h2>Meu Aniversário esta chegando!</h2>
-            <h2>Sua presença e muito importante para mim :)</h2>
             <h2>Por favor, responda se conseguirá comparecer.</h2>
-            <a class="btn btn-outline-info" href="/confirmar-presenca">Responder Presença</a>
+            <a class="btn btn-outline-info btn-lg mt-3" href="/confirmar-presenca">Responder Presença</a>
           </div>
         </div>
         <div class="col-md-5">
@@ -68,7 +73,7 @@
 <div class="rodape-rosa-claro p-5">
   <div class="row">
     <div class="col-md-12 text-center">
-      <h1 class="fonte-media">Sua presença e muito importante nessa data especial.</h1>
+      <h1 class="fonte-media">Sua presença e muito importante para mim :)</h1>
       <h1 class="fonte-media">Um abraço e um beijo da Helena.</h1>
     </div>
   </div>

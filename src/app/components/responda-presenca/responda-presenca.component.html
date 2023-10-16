@@ -4,6 +4,7 @@
   </div>
   <div class="card-body">
     <div class="row text-center">
+      <p *ngIf="this.resposta.dataResposta" class="text-danger pt-3">Você respondeu em: {{this.resposta.dataResposta | date:'dd/MM/yyyy HH:mm:ss'}}</p>
       <div class="col-md-6">
         <button name="btn-confirmar-presenca" class="btn btn-outline-primary" (click)="setaMarcarPresenca(true)" [ngClass]="{'active' : marcaPresenca}">
           <img src="/assets/img/emo-feliz.png" width="60px" height="60px" /> Confirmar Presença
@@ -30,9 +31,14 @@
         <textarea class="form-control" id="mensagemRecado" rows="5" placeholder="Informe os nomes e caso criança a idade." formControlName="mensagem"></textarea>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary" *ngIf="marcaPresenca" [disabled]="!formResposta.valid">Confirmar Presença</button>
-        <button class="btn btn-danger" *ngIf="!marcaPresenca" [disabled]="!formResposta.valid">Informar Ausência</button>
-        <a class="btn btn-outline-info mx-3">Cancelar</a>
+        <div *ngIf="PodeConfirmacaoPresenca" class="alert alert-warning">
+          Você poderá responder ou modificar até {{ this.aniversariante.dataLimiteConfirmaPresenca | date: 'dd/MM/yyyy'}}
+        </div>
+        <div *ngIf="!PodeConfirmacaoPresenca" class="alert alert-danger">
+          Atenção, não pode mais ser modificado ou respondido, por favor entre em contato com anfitrião.
+        </div>
+        <button class="btn btn-primary" *ngIf="marcaPresenca" [disabled]="!formResposta.valid || !PodeConfirmacaoPresenca">Confirmar Presença</button>
+        <button class="btn btn-danger" *ngIf="!marcaPresenca" [disabled]="!formResposta.valid || !PodeConfirmacaoPresenca">Informar Ausência</button>
       </div>
     </form>
   </div>
