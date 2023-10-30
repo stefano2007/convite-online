@@ -1,7 +1,8 @@
 export interface Foto {
-  id: number;
+  id: string;
+  aniversarioId: string;
   src: string;
   titulo: string;
-  subtitulo: string;
+  subTitulo: string;
   ordem: number;
 }

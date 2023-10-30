@@ -10,7 +10,6 @@ import { AniversarianteService } from 'src/app/shared/services/aniversariante.se
 })
 export class FestaComponent implements OnInit {
 
-  perquisa: string = "HelenaFaz4Anos";
   aniversariante: Aniversariante | any = {};
   constructor(
     private service: AniversarianteService
@@ -19,7 +18,7 @@ export class FestaComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.service.obterAniversariante(this.perquisa)
+    this.service.obterAniversariante()
       .subscribe({
         next: (response: Aniversariante) => {
           this.aniversariante = response;

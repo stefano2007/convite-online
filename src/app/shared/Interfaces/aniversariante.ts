@@ -3,20 +3,21 @@ import { Foto } from "./foto";
 
 export interface Aniversariante {
   id: string;
+  slug: string;
+  nome: string;
+  idade: number;
+  descricao: string;
   titulo: string;
   informativos: string;
-  nome: string;
-  apelido: string;
-  descricao: string;
   dataAniversario: Date;
-  diaSemanaEvento : string;
   dataEvento: Date;
+  diaSemanaEvento : string;
   horarioEvento: string;
   endereco: string;
   localizacaoUrl: string;
   imagemConvite: string;
   dataLimiteConfirmaPresenca: Date;
   fotosDestaque: Foto[];
-  fotosCarrosel: Foto[];
+  fotosCarrossel: Foto[];
   depoimentos: Depoimento[]
 }

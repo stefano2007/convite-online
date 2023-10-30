@@ -2,11 +2,11 @@
   "aniversarios": [
     {
       "id": "HelenaFaz4Anos",
+      "slug": "HelenaFaz4Anos",
       "nome": "Helena Almeida",
-      "apelido": "Nena",
       "titulo": "Helena Faz 4 Anos",
-      "informativos": "Olá pessoal, o dia do meu aniversário é 17 de Outubro, mas iremos comemorar no dia 21. Gostaria da sua presença, o tema será da Mulher Maravilha, quem quiser poderá vir fantasiado. Até lá :)",
       "descricao": "Convido todos Heróis e Heróinas para a minha festa!",
+      "informativos": "Olá pessoal, o dia do meu aniversário é 17 de Outubro, mas iremos comemorar no dia 21. Gostaria da sua presença, o tema será da Mulher Maravilha, quem quiser poderá vir fantasiado. Até lá :)",
       "dataAniversario": "2023-10-17",
       "diaSemanaEvento": "Sábado",
       "dataEvento": "2023-10-21",
