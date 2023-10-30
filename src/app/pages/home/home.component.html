@@ -8,11 +8,11 @@
 </div>
 
 <div class="container">
-  <div class="pt-5" name="carrossel-imagens">
-    <app-carrossel-fotos [fotos]="aniversariante.fotosCarrosel"></app-carrossel-fotos>
+  <div class="pt-5" name="carrossel-imagens" *ngIf="aniversariante.fotosCarrossel">
+    <app-carrossel-fotos [fotos]="aniversariante.fotosCarrossel"></app-carrossel-fotos>
   </div>
 
-  <div class="pt-5" name="fotos">
+  <div class="pt-5" name="fotos" *ngIf="aniversariante.fotosDestaque">
     <h1 class="text-center fonte-grande texto-rosa">Fotos</h1>
     <hr />
     <div name="fotos" class="row d-flex justify-content-center text-center">
@@ -25,7 +25,7 @@
     </div>
   </div>
 
-  <div class="pt-5" name="data-evento">
+  <div class="pt-5" name="data-evento" *ngIf="aniversariante.informativos">
     <h1 class="text-center fonte-grande texto-rosa">Informações</h1>
     <hr />
     <h1 class="text-center fonte-media texto-rosa-claro"> {{ aniversariante.informativos }}</h1>

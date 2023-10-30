@@ -19,9 +19,11 @@ export class AniversarianteService {
     private httpClient: HttpClient
   ) { }
 
-  obterAniversariante(nome: string): Observable<Aniversariante> {
+  obterAniversariante(): Observable<Aniversariante> {
+
+    let nome = this.obterSlugPesquisa();
     return this.httpClient
-    .get<Aniversariante>(`${environment.url_API}/aniversarios/${nome}`,{
+    .get<Aniversariante>(`${environment.url_API}/aniversarios/GetAniversarioPorSlug?slug=${nome}`,{
       headers: this.headersRequest
     })
     .pipe(
@@ -29,38 +31,19 @@ export class AniversarianteService {
     );
   }
 
-  obterFotosAniversariante(): Observable<Foto[]> {
-    return this.httpClient
-    .get<Foto[]>(`${environment.url_API}/fotos`,{
-      headers: this.headersRequest
-    })
-    .pipe(
-      retry(0)
-    );
+  salvarSlugPesquisa(slug: string){
+    localStorage.setItem('slug', slug);
   }
 
-  salvarRespostaPresenca(resposta : ConfirmaPresenca): Observable<ConfirmaPresenca> {
+  obterSlugPesquisa() : string{
+    return localStorage.getItem('slug') ?? '';;
+  }
 
-    if(resposta.id){
-      return this.httpClient
-      .put<ConfirmaPresenca>(`${environment.url_API}/respostas/${resposta.id}`,
-      resposta,
-      {
-        headers: this.headersRequest
-      })
-      .pipe(
-        retry(0)
-      );
-    }
+  salvarAniversarioId(aniversarioId: string){
+    localStorage.setItem('aniversarioId', aniversarioId);
+  }
 
-    return this.httpClient
-    .post<ConfirmaPresenca>(`${environment.url_API}/respostas`,
-    resposta,
-    {
-      headers: this.headersRequest
-    })
-    .pipe(
-      retry(0)
-    );
+  obterAniversarioId(): string{
+    return localStorage.getItem('aniversarioId') ?? '';
   }
 }

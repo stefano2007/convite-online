@@ -1,4 +1,4 @@
 export const environment = {
-  url_API: 'http://localhost:3000',
+  url_API: 'https://localhost:7170/api/v1',
   caminho_imagem: "/assets/img"
 };

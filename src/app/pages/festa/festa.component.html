@@ -1,10 +1,10 @@
 <div class="container">
   <h1 class="text-center fonte-grande texto-rosa">A Festa</h1>
   <hr />
-  <h1 class="text-center fonte-media texto-rosa-claro"> {{ aniversariante.informativos }}</h1>
+  <h1 class="text-center fonte-media texto-rosa-claro" *ngIf="aniversariante.informativos"> {{ aniversariante.informativos }}</h1>
 
   <div class="text-center">
-    <img class="img-fluid rounded" [src]="aniversariante.imagemConvite" alt="Convite">
+    <img *ngIf="aniversariante.imagemConvite" class="img-fluid rounded" [src]="aniversariante.imagemConvite" alt="Convite">
   </div>
 
   <div class="pt-5" name="data-evento">

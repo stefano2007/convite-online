@@ -4,6 +4,7 @@ import { FormGroup , FormBuilder, Validators } from '@angular/forms';
 import { ConfirmaPresenca } from 'src/app/shared/Interfaces/confirmaPresenca';
 import { MessageService, MessageType } from 'src/app/shared/services/mensagem.service';
 import { Aniversariante } from 'src/app/shared/Interfaces/aniversariante';
+import { RespostaService } from 'src/app/shared/services/resposta.service';
 
 @Component({
   selector: 'app-responda-presenca',
@@ -13,7 +14,6 @@ import { Aniversariante } from 'src/app/shared/Interfaces/aniversariante';
 export class RespondaPresencaComponent implements OnInit{
 
 aniversariante : Aniversariante | any = {};
-perquisa: string = "HelenaFaz4Anos";
 resposta : ConfirmaPresenca | any = {}
 marcaPresenca : boolean = true;
 formResposta: FormGroup = new FormGroup({});
@@ -21,6 +21,7 @@ formResposta: FormGroup = new FormGroup({});
 constructor(
   private fb: FormBuilder,
   private aniversarianteService: AniversarianteService,
+  private respostaService: RespostaService,
   private mensagemService : MessageService){}
 
 campoLocalStorage:string = 'resposta'
@@ -39,7 +40,7 @@ ngOnInit(): void {
 }
 
 popularAniversariante(){
-  this.aniversarianteService.obterAniversariante(this.perquisa)
+  this.aniversarianteService.obterAniversariante()
       .subscribe({
         next: (response: Aniversariante) => {
           this.aniversariante = response;
@@ -69,7 +70,11 @@ onSubmit() {
     let confirmaPresenca : ConfirmaPresenca = {...this.formResposta.value }
     confirmaPresenca.marcaPresenca = this.marcaPresenca;
     confirmaPresenca.dataResposta = new Date();
-    this.aniversarianteService
+
+    let aniversarioId = this.aniversarianteService.obterAniversarioId();
+    confirmaPresenca.aniversarioId = aniversarioId;
+
+    this.respostaService
       .salvarRespostaPresenca(confirmaPresenca)
       .subscribe({
         next: (resposta : ConfirmaPresenca) =>{
