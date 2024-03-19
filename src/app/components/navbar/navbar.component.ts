@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Aniversariante } from 'src/app/shared/Interfaces/aniversariante';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,11 +7,14 @@ import { Aniversariante } from 'src/app/shared/Interfaces/aniversariante';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit{
+  slug: string="";
 
-  @Input() aniversariante : Aniversariante | any ={};
-
-  constructor(){ }
+  constructor(
+    private route: ActivatedRoute,
+    ){ }
 
   ngOnInit(): void {
+    this.slug = this.route.obterSlug();
+    console.log('nav slug', this.slug)
   }
 }

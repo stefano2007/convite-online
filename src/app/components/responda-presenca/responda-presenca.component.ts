@@ -5,6 +5,8 @@ import { ConfirmaPresenca } from 'src/app/shared/Interfaces/confirmaPresenca';
 import { MessageService, MessageType } from 'src/app/shared/services/mensagem.service';
 import { Aniversariante } from 'src/app/shared/Interfaces/aniversariante';
 import { RespostaService } from 'src/app/shared/services/resposta.service';
+import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-responda-presenca',
@@ -17,85 +19,87 @@ aniversariante : Aniversariante | any = {};
 resposta : ConfirmaPresenca | any = {}
 marcaPresenca : boolean = true;
 formResposta: FormGroup = new FormGroup({});
+slug: string='';
 
-constructor(
-  private fb: FormBuilder,
-  private aniversarianteService: AniversarianteService,
-  private respostaService: RespostaService,
-  private mensagemService : MessageService){}
+  constructor(
+    private route: ActivatedRoute,
+    private fb: FormBuilder,
+    private aniversarianteService: AniversarianteService,
+    private respostaService: RespostaService,
+    private mensagemService : MessageService,
+    private repoLocalStorage: LocalStorageService){}
 
-campoLocalStorage:string = 'resposta'
+  ngOnInit(): void {
+    this.slug = this.route.obterSlug();
+    let respostaSalva = this.repoLocalStorage.obterResposta()
 
-ngOnInit(): void {
-  let respostaSalva = localStorage.getItem(this.campoLocalStorage)
-
-  this.popularAniversariante();
-  if(respostaSalva){
-    this.resposta = JSON.parse(respostaSalva);
-    this.marcaPresenca = this.resposta.marcaPresenca;
-    this.createForm(this.resposta);
-    return;
+    this.popularAniversariante();
+    if(respostaSalva){
+      this.resposta = JSON.parse(respostaSalva);
+      this.marcaPresenca = this.resposta.marcaPresenca;
+      this.createForm(this.resposta);
+      return;
+    }
+    this.createForm(new ConfirmaPresenca());
   }
-  this.createForm(new ConfirmaPresenca());
-}
 
-popularAniversariante(){
-  this.aniversarianteService.obterAniversariante()
-      .subscribe({
-        next: (response: Aniversariante) => {
-          this.aniversariante = response;
-        },
-        error: (error) => {
-          console.error(error);
-        },
-        complete: () => {}
-      });
-}
+  popularAniversariante(){
+    this.aniversarianteService.obterAniversariante()
+        .subscribe({
+          next: (response: Aniversariante) => {
+            this.aniversariante = response;
+          },
+          error: (error) => {
+            console.error(error);
+          },
+          complete: () => {}
+        });
+  }
 
-setaMarcarPresenca(marca: boolean){
-  this.marcaPresenca = marca;
-}
+  setaMarcarPresenca(marca: boolean){
+    this.marcaPresenca = marca;
+  }
 
-createForm(resposta: ConfirmaPresenca){
-  this.formResposta = this.fb.group({
-    id: [resposta.id],
-    qtdAdultos: [resposta.qtdAdultos, Validators.min(1)],
-    qtdCriancas: [resposta.qtdCriancas],
-    mensagem: [resposta.mensagem, Validators.required]
-  });
-}
+  createForm(resposta: ConfirmaPresenca){
+    this.formResposta = this.fb.group({
+      id: [resposta.id],
+      qtdAdultos: [resposta.qtdAdultos, Validators.min(1)],
+      qtdCriancas: [resposta.qtdCriancas],
+      mensagem: [resposta.mensagem, Validators.required]
+    });
+  }
 
-onSubmit() {
-  if(this.formResposta.valid){
-    let confirmaPresenca : ConfirmaPresenca = {...this.formResposta.value }
-    confirmaPresenca.marcaPresenca = this.marcaPresenca;
-    confirmaPresenca.dataResposta = new Date();
+  onSubmit() {
+    if(this.formResposta.valid){
+      let confirmaPresenca : ConfirmaPresenca = {...this.formResposta.value }
+      confirmaPresenca.marcaPresenca = this.marcaPresenca;
+      confirmaPresenca.dataResposta = new Date();
 
-    let aniversarioId = this.aniversarianteService.obterAniversarioId();
-    confirmaPresenca.aniversarioId = aniversarioId;
+      let aniversarioId = this.repoLocalStorage.obterAniversarioId();
+      confirmaPresenca.aniversarioId = aniversarioId;
 
-    this.respostaService
-      .salvarRespostaPresenca(confirmaPresenca)
-      .subscribe({
-        next: (resposta : ConfirmaPresenca) =>{
-          localStorage.setItem(this.campoLocalStorage, JSON.stringify(resposta));
-          if(resposta.marcaPresenca){
-            this.mensagemService.showMessage('Sucesso','Confirmação salva, espero você na festa!');
-            return;
+      this.respostaService
+        .salvarRespostaPresenca(confirmaPresenca)
+        .subscribe({
+          next: (resposta : ConfirmaPresenca) =>{
+            this.repoLocalStorage.salvarResposta(JSON.stringify(resposta))
+            if(resposta.marcaPresenca){
+              this.mensagemService.showMessage('Sucesso','Confirmação salva, espero você na festa!');
+              return;
+            }
+            this.mensagemService.showMessage('Sucesso','Obrigado por responder!');
+          },
+          error: (error) => {
+            console.error(error);
+            this.mensagemService.showMessage('Erro','Ocorreu um erro ao salvar o registro.', MessageType.error);
           }
-          this.mensagemService.showMessage('Sucesso','Obrigado por responder!');
-        },
-        error: (error) => {
-          console.error(error);
-          this.mensagemService.showMessage('Erro','Ocorreu um erro ao salvar o registro.', MessageType.error);
-        }
-      });
+        });
+    }
   }
-}
 
-get PodeConfirmacaoPresenca()
-{
-  return new Date(this.aniversariante.dataLimiteConfirmaPresenca) > new Date();
-}
+  get PodeConfirmacaoPresenca()
+  {
+    return new Date(this.aniversariante.dataLimiteConfirmaPresenca) > new Date();
+  }
 
 }

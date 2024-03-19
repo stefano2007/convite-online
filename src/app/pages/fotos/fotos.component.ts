@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Foto } from 'src/app/shared/Interfaces/foto';
-import { AniversarianteService } from 'src/app/shared/services/aniversariante.service';
 import { FotoService } from 'src/app/shared/services/foto.service';
+import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 
 @Component({
   selector: 'app-fotos',
@@ -11,21 +12,22 @@ import { FotoService } from 'src/app/shared/services/foto.service';
 export class FotosComponent implements OnInit {
 
   @Input() fotos: Foto[] = [];
+  slug: string='';
 
   constructor(
-    private fotoSrvice : FotoService,
-    private aniversarrianteService : AniversarianteService
+    private route: ActivatedRoute,
+    private fotoService : FotoService,
+    private repoLocalStorage : LocalStorageService
   ) {}
 
   ngOnInit(): void {
+    this.slug = this.route.obterSlug()
+    let aniversarioId = this.repoLocalStorage.obterAniversarioId();
 
-    let aniversarioId = this.aniversarrianteService.obterAniversarioId();
-
-    this.fotoSrvice.obterFotosAniversariante(aniversarioId)
+    this.fotoService.obterFotosAniversariante(aniversarioId)
     .subscribe({
       next: (response: Foto[]) => {
         this.fotos = response;
-        console.log('response', response);
       },
       error: (error) => {
         console.error(error);

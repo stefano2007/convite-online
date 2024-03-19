@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="p-5 text-center introducao">
   <div class="py-2 ">
     <h1 class="texto-rosa fonte-grande">{{ aniversariante.titulo }}</h1>
@@ -20,7 +21,7 @@
           <app-foto-card [foto]="foto"></app-foto-card>
       </div>
       <div class="col-md-12">
-        <a class="btn btn-lg px-5 btn-pink" href="/fotos">Ver Todas</a>
+        <a class="btn btn-lg px-5 btn-pink" href="/{{slug}}/fotos">Ver Todas</a>
       </div>
     </div>
   </div>
@@ -49,7 +50,8 @@
         loading="lazy"
         allowfullscreen
         referrerpolicy="no-referrer-when-downgrade"
-        src="https://maps.google.com/maps?hl=pt-br&amp;q=jose da costa monteiro 470&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+        [src]="linkGoogleMaps | safe"
+        >
       </iframe>
     </div>
   </div>
@@ -60,7 +62,7 @@
           <div class="title text-center">
             <h2>Meu Aniversário esta chegando!</h2>
             <h2>Por favor, responda se conseguirá comparecer.</h2>
-            <a class="btn btn-outline-info btn-lg mt-3" href="/confirmar-presenca">Responder Presença</a>
+            <a class="btn btn-outline-info btn-lg mt-3" href="/{{slug}}/confirmar-presenca">Responder Presença</a>
           </div>
         </div>
         <div class="col-md-5">

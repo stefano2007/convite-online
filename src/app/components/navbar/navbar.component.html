@@ -2,12 +2,12 @@
   <nav class="navbar">
     <div class="container-fluid">
       <ul class="nav">
-        <li class="nav-item"><a href="/home" class="btn btn-pink" routerLink="/home" routerLinkActive="active">Home</a></li>
-        <li class="nav-item"><a href="/fotos" class="btn btn-pink" routerLink="/fotos" routerLinkActive="active">Fotos</a></li>
-        <li class="nav-item"><a href="/festa" class="btn btn-pink" routerLink="/festa" routerLinkActive="active">A Festa</a></li>
+        <li class="nav-item"><a class="btn btn-pink" href="/{{slug}}" routerLinkActive="active">Home</a></li>
+        <li class="nav-item"><a class="btn btn-pink" href="/{{slug}}/fotos" routerLinkActive="active">Fotos</a></li>
+        <li class="nav-item"><a class="btn btn-pink" href="/{{slug}}/festa"  routerLinkActive="active">A Festa</a></li>
         <!--<li class="nav-item"><a href="/presentes" class="btn btn-pink" routerLink="/presentes" routerLinkActive="active">Presentes</a></li>-->
         <!--<li class="nav-item"><a href="/depoimentos" class="btn btn-pink" routerLink="/depoimentos" routerLinkActive="active">Depoimentos</a></li>-->
-        <li class="nav-item"><a href="/confirmar-presenca" class="btn btn-pink" routerLink="/confirmar-presenca" routerLinkActive="active">RSVP Presença</a></li>
+        <li class="nav-item"><a class="btn btn-pink" href="/{{slug}}/confirmar-presenca" routerLinkActive="active">RSVP Presença</a></li>
       </ul>
     </div>
   </nav>

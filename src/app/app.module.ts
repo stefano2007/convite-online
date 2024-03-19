@@ -22,6 +22,12 @@ import { FotoCardComponent } from './components/foto-card/foto-card.component';
 import { CarrosselFotosComponent } from './components/carrossel-fotos/carrossel-fotos.component';
 import { RespondaPresencaComponent } from './components/responda-presenca/responda-presenca.component';
 
+//extensões
+import 'src/app/shared/common/activedRoute-extensions';
+
+//pipe customizado
+import { SafePipe } from 'src/app/shared/pipes/safe-pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +42,8 @@ import { RespondaPresencaComponent } from './components/responda-presenca/respon
     Erro404Component,
     FotoCardComponent,
     CarrosselFotosComponent,
-    RespondaPresencaComponent
+    RespondaPresencaComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

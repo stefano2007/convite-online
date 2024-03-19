@@ -3,8 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Aniversariante } from '../Interfaces/aniversariante';
 import { retry, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Foto } from '../Interfaces/foto';
-import { ConfirmaPresenca } from '../Interfaces/confirmaPresenca';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +15,12 @@ export class AniversarianteService {
   });
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private repoLocalStorage: LocalStorageService
   ) { }
 
-  obterAniversariante(): Observable<Aniversariante> {
-
-    let nome = this.obterSlugPesquisa();
+  obterAniversariante(slug: string = ''): Observable<Aniversariante> {
+    let nome = this.repoLocalStorage.obterSlugPesquisa();
     return this.httpClient
     .get<Aniversariante>(`${environment.url_API}/aniversarios/GetAniversarioPorSlug?slug=${nome}`,{
       headers: this.headersRequest
@@ -29,21 +28,5 @@ export class AniversarianteService {
     .pipe(
       retry(0)
     );
-  }
-
-  salvarSlugPesquisa(slug: string){
-    localStorage.setItem('slug', slug);
-  }
-
-  obterSlugPesquisa() : string{
-    return localStorage.getItem('slug') ?? '';;
-  }
-
-  salvarAniversarioId(aniversarioId: string){
-    localStorage.setItem('aniversarioId', aniversarioId);
-  }
-
-  obterAniversarioId(): string{
-    return localStorage.getItem('aniversarioId') ?? '';
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Aniversariante } from 'src/app/shared/Interfaces/aniversariante';
 import { AniversarianteService } from 'src/app/shared/services/aniversariante.service';
 
@@ -9,15 +10,17 @@ import { AniversarianteService } from 'src/app/shared/services/aniversariante.se
   styleUrls: ['./festa.component.css']
 })
 export class FestaComponent implements OnInit {
-
+  slug:string ='';
   aniversariante: Aniversariante | any = {};
   constructor(
+    private route: ActivatedRoute,
     private service: AniversarianteService
   ){
   }
 
   ngOnInit(): void {
 
+    this.slug = this.route.obterSlug();
     this.service.obterAniversariante()
       .subscribe({
         next: (response: Aniversariante) => {
