@@ -14,7 +14,6 @@ export class NavbarComponent implements OnInit{
     ){ }
 
   ngOnInit(): void {
-    this.slug = this.route.obterSlug();
-    console.log('nav slug', this.slug)
+    this.slug = this.route.obterSlugPath();
   }
 }

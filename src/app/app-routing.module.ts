@@ -8,6 +8,9 @@ import { FotosComponent } from './pages/fotos/fotos.component';
 import { DepoimentosComponent } from './pages/depoimentos/depoimentos.component';
 import { ConfirmarPresencaComponent } from './pages/confirmar-presenca/confirmar-presenca.component';
 import { environment } from 'src/environments/environment';
+import { Erro404Component } from './pages/erro404/erro404.component';
+import { ConfiguracoesComponent } from './pages/configuracoes/configuracoes.component';
+import { ConfiguracoesFotosComponent } from './pages/configuracoes-fotos/configuracoes-fotos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: environment.slugPadrao , pathMatch: 'full' },
@@ -17,6 +20,9 @@ const routes: Routes = [
   { path: ':slug/presentes', component: PresentesComponent },
   { path: ':slug/depoimentos', component: DepoimentosComponent },
   { path: ':slug/confirmar-presenca', component: ConfirmarPresencaComponent },
+  { path: ':slug/configuracoes', component: ConfiguracoesComponent },
+  { path: ':slug/configuracoes-fotos', component: ConfiguracoesFotosComponent },
+  { path: 'p/nao-encontrado', component: Erro404Component },
   { path: '**', component: HomeComponent },
 ];
 

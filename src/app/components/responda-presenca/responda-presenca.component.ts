@@ -30,7 +30,7 @@ slug: string='';
     private repoLocalStorage: LocalStorageService){}
 
   ngOnInit(): void {
-    this.slug = this.route.obterSlug();
+    this.slug = this.route.obterSlugPath();
     let respostaSalva = this.repoLocalStorage.obterResposta()
 
     this.popularAniversariante();
@@ -44,7 +44,7 @@ slug: string='';
   }
 
   popularAniversariante(){
-    this.aniversarianteService.obterAniversariante()
+    this.aniversarianteService.obterAniversariante(this.slug)
         .subscribe({
           next: (response: Aniversariante) => {
             this.aniversariante = response;
@@ -75,7 +75,7 @@ slug: string='';
       confirmaPresenca.marcaPresenca = this.marcaPresenca;
       confirmaPresenca.dataResposta = new Date();
 
-      let aniversarioId = this.repoLocalStorage.obterAniversarioId();
+      let aniversarioId = this.repoLocalStorage.obterAniversarioId(this.slug);
       confirmaPresenca.aniversarioId = aniversarioId;
 
       this.respostaService

@@ -18,7 +18,7 @@
     <h1 class="text-center fonte-grande texto-rosa">Local</h1>
     <hr />
     <h3 class="text-center pt-4 texto-rosa-claro">{{ aniversariante.endereco }}</h3>
-    <div class="d-flex justify-content-center p-5">
+    <div class="row pb-5">
       <iframe
         width="100%"
         height="500"
@@ -26,7 +26,7 @@
         loading="lazy"
         allowfullscreen
         referrerpolicy="no-referrer-when-downgrade"
-        src="https://maps.google.com/maps?hl=pt-br&amp;q=jose da costa monteiro 470&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+        [src]="aniversariante.localizacaoUrl | safe">
       </iframe>
     </div>
   </div>

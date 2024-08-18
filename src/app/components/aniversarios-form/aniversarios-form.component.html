@@ -1,0 +1,61 @@
+<form class="row" [formGroup]="formAniversariante" (ngSubmit)="onSubmit()">
+  <input type="hidden" formControlName="id" >
+  <div class="form-group">
+    <label for="nome">Nome</label>
+    <input type="text" class="form-control" id="nome" formControlName="nome" >
+  </div>
+  <div class="form-group">
+    <label for="idade">Idade</label>
+    <input type="number" class="form-control" id="idade" step="1" min="0" max="110" value="1" formControlName="idade">
+  </div>
+  <div class="form-group">
+    <label for="descricao">Descrição</label>
+    <input type="text" class="form-control" id="descricao" formControlName="descricao" >
+  </div>
+  <div class="form-group">
+    <label for="titulo">Título</label>
+    <input type="text" class="form-control" id="titulo" formControlName="titulo" >
+  </div>
+  <div class="form-group">
+    <label for="informativos">Informativos</label>
+    <textarea class="form-control" id="informativos" rows="5" placeholder="Informe a informativos." formControlName="informativos"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="dataAniversario">Data do Aniversario</label>
+    <input type="date" class="form-control" id="dataAniversario" formControlName="dataAniversario" required >
+  </div>
+  <div class="form-group">
+    <label for="dataEvento">Data do Evento</label>
+    <input type="date" class="form-control" id="dataEvento" formControlName="dataEvento" required >
+  </div>
+  <div class="form-group">
+    <label for="diaSemanaEvento">Dia da Semana Evento</label>
+    <input type="text" class="form-control" id="diaSemanaEvento" formControlName="diaSemanaEvento" >
+  </div>
+  <div class="form-group">
+    <label for="horarioEvento">Horario do Evento</label>
+    <input type="time" class="form-control" id="horarioEvento" formControlName="horarioEvento" value="18:00" >
+  </div>
+  <div class="form-group">
+    <label for="endereco">Endereço</label>
+    <input type="text" class="form-control" id="endereco" formControlName="endereco" >
+  </div>
+  <div class="form-group">
+    <label for="localizacaoUrl">Localização Url do Google Maps</label>
+    <input type="text" class="form-control" id="localizacaoUrl" formControlName="localizacaoUrl" >
+  </div>
+  <div class="form-group">
+    <label for="dataLimiteConfirmaPresenca">Data Limite da Confirma Presença</label>
+    <input type="date" class="form-control" id="dataLimiteConfirmaPresenca" formControlName="dataLimiteConfirmaPresenca" required >
+  </div>
+  <div class="form-group pt-3">
+    <button class="btn btn-primary">Salvar</button>
+  </div>
+</form>
+
+<app-fotos-table *ngIf="aniversariante.id" [aniversarioId]="aniversariante.id" tituloFotos="Fotos Carrossel" [listaFotos]="aniversariante.fotosCarrossel" [tipoFoto]="TipoFotoCarrossel"></app-fotos-table>
+<app-fotos-table *ngIf="aniversariante.id" [aniversarioId]="aniversariante.id" tituloFotos="Fotos Destaque" [listaFotos]="aniversariante.fotosDestaque" [tipoFoto]="TipoFotoDestaque"></app-fotos-table>
+
+<div class="col-md-12" *ngIf="aniversariante.slug">
+  <a class="btn btn-lg px-5 btn-pink" href="/{{aniversariante.slug}}/configuracoes-fotos">Galeria de Fotos</a>
+</div>

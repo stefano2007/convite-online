@@ -1,0 +1,34 @@
+<div class="container">
+  <h1 class="text-center fonte-grande texto-rosa">{{tituloFotos}}</h1>
+  <hr />
+  <div class="col-md-12">
+    <button class="btn btn-primary my-3" (click)="criarImagem()">Nova Foto</button>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <table class="table table-striped text-center">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Imagem</th>
+          <th scope="col">Título</th>
+          <th scope="col">Subtitulo</th>
+          <th scope="col">ordem</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let foto of listaFotos; index as idx">
+          <td>
+            <button *ngIf="PodeEditar" class="btn btn-primary" (click)="alterarImagem(foto)">Editar</button> &nbsp;
+            <button class="btn btn-danger" (click)="excluirFoto(foto)">Excluir</button>
+          </td>
+          <td>
+            <img class="img img-100px" [src]="foto.src" [alt]="foto.titulo">
+          </td>
+          <td>{{foto.titulo}}</td>
+          <td>{{foto.subTitulo}}</td>
+          <td>{{foto.ordem}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

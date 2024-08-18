@@ -2,11 +2,11 @@ import { ActivatedRoute } from "@angular/router";
 
 declare module "@angular/router"{
   interface ActivatedRoute {
-    obterSlug(): string;
+    obterSlugPath(): string;
   }
 }
 
-ActivatedRoute.prototype.obterSlug = function() {
+ActivatedRoute.prototype.obterSlugPath = function() {
   return this.snapshot.paramMap.get('slug') || '';
 };
 

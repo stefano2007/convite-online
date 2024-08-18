@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Aniversariante } from 'src/app/shared/Interfaces/aniversariante';
 import { AniversarianteService } from 'src/app/shared/services/aniversariante.service';
+import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 
 @Component({
   selector: 'app-home',
@@ -10,25 +11,24 @@ import { AniversarianteService } from 'src/app/shared/services/aniversariante.se
 })
 export class HomeComponent implements OnInit {
   slug:string ='';
-
   aniversariante: Aniversariante | any = {};
-
-  linkGoogleMaps = "https://maps.google.com/maps?hl=pt-br&amp;q=jose da costa monteiro 470&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed";
 
   constructor(
     private route: ActivatedRoute,
-    private service: AniversarianteService
+    private service: AniversarianteService,
+    private repoLocalStorage: LocalStorageService
   ){
   }
 
   ngOnInit(): void {
-    this.slug = this.route.obterSlug();
-    console.log('this.route.obterSlug()', this.route.obterSlug())
-
-    this.service.obterAniversariante()
+    this.slug = this.route.obterSlugPath();
+    this.service.obterAniversariante(this.slug)
       .subscribe({
         next: (response: Aniversariante) => {
           this.aniversariante = response;
+          if(response.id){
+            this.repoLocalStorage.salvarAniversarioId(this.slug, this.aniversariante.id);
+          }
         },
         error: (error) => {
           console.error(error);

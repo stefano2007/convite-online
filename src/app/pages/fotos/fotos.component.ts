@@ -21,8 +21,8 @@ export class FotosComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.slug = this.route.obterSlug()
-    let aniversarioId = this.repoLocalStorage.obterAniversarioId();
+    this.slug = this.route.obterSlugPath()
+    let aniversarioId = this.repoLocalStorage.obterAniversarioId(this.slug);
 
     this.fotoService.obterFotosAniversariante(aniversarioId)
     .subscribe({

@@ -1,0 +1,25 @@
+<div class="container py-4">
+  <h1>Criar / Editar Fotos</h1>
+  <form class="row" [formGroup]="formFoto" (ngSubmit)="onSubmit()">
+    <input type="hidden" formControlName="id" >
+    <div class="form-group">
+      <label for="titulo">Título</label>
+      <input type="text" class="form-control" id="titulo" formControlName="titulo" >
+    </div>
+    <div class="form-group">
+      <label for="subTitulo">subTitulo</label>
+      <textarea class="form-control" id="subTitulo" rows="5" placeholder="Informe a subTitulo." formControlName="subTitulo"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="ordem">ordem</label>
+      <input type="number" class="form-control" id="ordem" step="1" min="0" max="50" value="1" formControlName="ordem" >
+    </div>
+    <div *ngIf="!foto.id" class="form-group">
+      <label for="arquivo">Selecione uma Imagem</label>
+      <input #imageInput type="file" accept="image/*" class="form-control" id="arquivo" (change)="processFile(imageInput)" required>
+    </div>
+    <div class="form-group py-3">
+      <button class="btn btn-primary">Salvar</button>
+    </div>
+  </form>
+</div>

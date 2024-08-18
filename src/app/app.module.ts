@@ -27,6 +27,13 @@ import 'src/app/shared/common/activedRoute-extensions';
 
 //pipe customizado
 import { SafePipe } from 'src/app/shared/pipes/safe-pipe';
+import { ConfiguracoesComponent } from './pages/configuracoes/configuracoes.component';
+import { AniversariosFormComponent } from './components/aniversarios-form/aniversarios-form.component';
+import { FotosFormComponent } from './components/fotos-form/fotos-form.component';
+import { FotosTableComponent } from './components/fotos-table/fotos-table.component';
+
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { ConfiguracoesFotosComponent } from './pages/configuracoes-fotos/configuracoes-fotos.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +50,13 @@ import { SafePipe } from 'src/app/shared/pipes/safe-pipe';
     FotoCardComponent,
     CarrosselFotosComponent,
     RespondaPresencaComponent,
-    SafePipe
+    SafePipe,
+    ConfiguracoesComponent,
+    AniversariosFormComponent,
+    FotosFormComponent,
+    AniversariosFormComponent,
+    FotosTableComponent,
+    ConfiguracoesFotosComponent
   ],
   imports: [
     BrowserModule,
@@ -55,8 +68,14 @@ import { SafePipe } from 'src/app/shared/pipes/safe-pipe';
       positionClass: 'toast-top-right',
       preventDuplicates: true,
       }),
+    MatDialogModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: MatDialogRef,
+      useValue: {}
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
