@@ -21,7 +21,7 @@ export class RespostaService {
 
     if(resposta.id){
       return this.httpClient
-      .put<ConfirmaPresenca>(`${environment.url_API}/respostas?id=${resposta.id}`,
+      .put<ConfirmaPresenca>(`${environment.url_API}/respostas/${resposta.id}`,
       resposta,
       {
         headers: this.headersRequest

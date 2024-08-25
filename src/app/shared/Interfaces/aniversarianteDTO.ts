@@ -10,6 +10,7 @@ export interface AniversarianteDTO {
   dataEvento: Date;
   diaSemanaEvento : string;
   horarioEvento: string;
+  local: string;
   endereco: string;
   localizacaoUrl: string;
   imagemConvite: string;

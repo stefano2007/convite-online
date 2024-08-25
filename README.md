@@ -15,13 +15,14 @@ Este projeto tem como objetivo criar um site em formato de convite online para o
 - [x] Projeto criado em Angular
 - [x] Inicialmente o projeto deve usar o API fake com informações do salva no json-server e depois alterado por um API.
     - [x] Integração com API.
-    - [ ] Remover json-server.
+    - [x] Remover json-server.
 - [x] Ao confirma presença ou não deve ser salvo em LocalStore as alterações.
 - [ ] Depois da primeira versão incluir temas customizados.
 - [ ] Hospedar na AWS o site.
     - [x] Criar bucket stefanodev-convite-online para hospedar o site API
     - [ ] Criar CodeBuild monitorando repositorio do github para fazer o build e joga no S3 toda vez que tem um push na 'main'
     - [ ] Criar CloudFront para servir o site hospedado no S3
-
+- [ ] Criar infra via terraform
+- [ ] Pipeline via github actions
 ## TODO
-- [ ] Corrigir erro ao carregar url do google maps no iframe vindo da API.
+- [x] Corrigir erro ao carregar url do google maps no iframe vindo da API.

@@ -19,6 +19,14 @@
     <form class="row" [formGroup]="formResposta" (ngSubmit)="onSubmit()">
       <input type="hidden" formControlName="id" >
       <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome" placeholder="Informe seu nome." formControlName="nome">
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" class="form-control" id="email" placeholder="Informe seu email." formControlName="email">
+      </div>
+      <div class="form-group">
         <label for="qtdAdultos">Adultos</label>
         <input type="number" class="form-control" id="qtdAdultos" step="1" min="0" max="10" value="0" formControlName="qtdAdultos" >
       </div>
@@ -28,7 +36,7 @@
       </div>
       <div class="form-group">
         <label for="mensagemRecado">Mensagem</label>
-        <textarea class="form-control" id="mensagemRecado" rows="5" placeholder="Informe os nomes e caso criança a idade." formControlName="mensagem"></textarea>
+        <textarea class="form-control" id="mensagemRecado" rows="5" placeholder="Informe os nomes e caso criança também a idade." formControlName="mensagem"></textarea>
       </div>
       <div class="form-group">
         <div *ngIf="PodeConfirmacaoPresenca" class="alert alert-warning">

@@ -13,6 +13,7 @@ export interface Aniversariante {
   dataEvento: Date;
   diaSemanaEvento : string;
   horarioEvento: string;
+  local: string;
   endereco: string;
   localizacaoUrl: string;
   imagemConvite: string;

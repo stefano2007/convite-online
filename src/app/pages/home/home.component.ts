@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, CSP_NONCE, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Aniversariante } from 'src/app/shared/Interfaces/aniversariante';
 import { AniversarianteService } from 'src/app/shared/services/aniversariante.service';
@@ -22,11 +22,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.slug = this.route.obterSlugPath();
+
     this.service.obterAniversariante(this.slug)
       .subscribe({
         next: (response: Aniversariante) => {
           this.aniversariante = response;
-          if(response.id){
+          if(this.aniversariante?.id){
             this.repoLocalStorage.salvarAniversarioId(this.slug, this.aniversariante.id);
           }
         },

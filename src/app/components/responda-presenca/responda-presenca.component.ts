@@ -63,6 +63,8 @@ slug: string='';
   createForm(resposta: ConfirmaPresenca){
     this.formResposta = this.fb.group({
       id: [resposta.id],
+      nome: [resposta.nome, Validators.required],
+      email: [resposta.email, Validators.required],
       qtdAdultos: [resposta.qtdAdultos, Validators.min(1)],
       qtdCriancas: [resposta.qtdCriancas],
       mensagem: [resposta.mensagem, Validators.required]

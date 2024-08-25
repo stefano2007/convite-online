@@ -61,6 +61,7 @@ export class AniversariosFormComponent implements OnInit{
       dataEvento: [this.aniversariante.dataEvento],
       diaSemanaEvento : [this.aniversariante.diaSemanaEvento],
       horarioEvento: [this.aniversariante.horarioEvento],
+      local: [this.aniversariante.local],
       endereco: [this.aniversariante.endereco],
       localizacaoUrl: [this.aniversariante.localizacaoUrl],
       dataLimiteConfirmaPresenca: [this.aniversariante.dataLimiteConfirmaPresenca]
