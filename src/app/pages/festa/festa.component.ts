@@ -19,7 +19,6 @@ export class FestaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.slug = this.route.obterSlugPath();
     this.service.obterAniversariante(this.slug)
       .subscribe({

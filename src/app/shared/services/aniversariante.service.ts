@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Aniversariante } from '../Interfaces/aniversariante';
 import { retry, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { LocalStorageService } from './local-storage.service';
 import { AniversarianteDTO } from '../Interfaces/aniversarianteDTO';
 
 @Injectable({
@@ -16,13 +15,12 @@ export class AniversarianteService {
   });
 
   constructor(
-    private httpClient: HttpClient,
-    private repoLocalStorage: LocalStorageService
+    private httpClient: HttpClient
   ) { }
 
   obterAniversariante(slug: string): Observable<Aniversariante> {
     return this.httpClient
-    .get<Aniversariante>(`${environment.url_API}/aniversarios/GetAniversarioPorSlug?slug=${slug}`,{
+    .get<Aniversariante>(`${environment.url_API}/Aniversarios/GetAniversarioPorSlug?slug=${slug}`,{
       headers: this.headersRequest
     })
     .pipe(

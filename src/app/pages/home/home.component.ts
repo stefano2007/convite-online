@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.slug = this.route.obterSlugPath();
-
     this.service.obterAniversariante(this.slug)
       .subscribe({
         next: (response: Aniversariante) => {

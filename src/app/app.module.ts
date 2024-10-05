@@ -34,6 +34,7 @@ import { FotosTableComponent } from './components/fotos-table/fotos-table.compon
 
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { ConfiguracoesFotosComponent } from './pages/configuracoes-fotos/configuracoes-fotos.component';
+import { IndexComponent } from './pages/index/index.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ConfiguracoesFotosComponent } from './pages/configuracoes-fotos/configu
     FotosFormComponent,
     AniversariosFormComponent,
     FotosTableComponent,
-    ConfiguracoesFotosComponent
+    ConfiguracoesFotosComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,

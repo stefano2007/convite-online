@@ -10,11 +10,7 @@ export class LocalStorageService {
   salvarSlugPesquisa(slug: string){
     localStorage.setItem('slug', slug);
   }
-/*
-  obterSlugPesquisa() : string{
-    return localStorage.getItem('slug') ?? '';;
-  }
-*/
+
   salvarAniversarioId(slug: string, aniversarioId: string){
     localStorage.setItem(`${slug}.aniversarioId`, aniversarioId);
   }
@@ -23,11 +19,11 @@ export class LocalStorageService {
     return localStorage.getItem(`${slug}.aniversarioId`) ?? '';
   }
 
-  salvarResposta(resposta: any){
-    localStorage.setItem('resposta', resposta);
+  salvarResposta(slug: string, resposta: any){
+    localStorage.setItem(`${slug}.resposta`, resposta);
   }
 
-  obterResposta(): string{
-    return localStorage.getItem('resposta') ?? '';
+  obterResposta(slug: string): string{
+    return localStorage.getItem(`${slug}.resposta`) ?? '';
   }
 }

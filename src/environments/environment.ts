@@ -1,5 +1,4 @@
 export const environment = {
-  url_API: 'https://localhost:7170/api/v1',
-  caminho_imagem: "/assets/img",
+  url_API: 'https://localhost:44342/api/v1',
   slugPadrao: "HelenaFaz5Anos"
 };

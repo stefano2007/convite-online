@@ -31,7 +31,7 @@ slug: string='';
 
   ngOnInit(): void {
     this.slug = this.route.obterSlugPath();
-    let respostaSalva = this.repoLocalStorage.obterResposta()
+    let respostaSalva = this.repoLocalStorage.obterResposta(this.slug)
 
     this.popularAniversariante();
     if(respostaSalva){
@@ -84,7 +84,7 @@ slug: string='';
         .salvarRespostaPresenca(confirmaPresenca)
         .subscribe({
           next: (resposta : ConfirmaPresenca) =>{
-            this.repoLocalStorage.salvarResposta(JSON.stringify(resposta))
+            this.repoLocalStorage.salvarResposta(this.slug, JSON.stringify(resposta))
             if(resposta.marcaPresenca){
               this.mensagemService.showMessage('Sucesso','Confirmação salva, espero você na festa!');
               return;
