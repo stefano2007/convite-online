@@ -15,11 +15,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class RespondaPresencaComponent implements OnInit{
 
-aniversariante : Aniversariante | any = {};
-resposta : ConfirmaPresenca | any = {}
-marcaPresenca : boolean = true;
-formResposta: FormGroup = new FormGroup({});
-slug: string='';
+  aniversariante : Aniversariante | any = {};
+  resposta : ConfirmaPresenca | any = {}
+  marcaPresenca : boolean = true;
+  formResposta: FormGroup = new FormGroup({});
+  slug: string='';
+
+  protected bloquearBotoes: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,9 +33,13 @@ slug: string='';
 
   ngOnInit(): void {
     this.slug = this.route.obterSlugPath();
-    let respostaSalva = this.repoLocalStorage.obterResposta(this.slug)
 
     this.popularAniversariante();
+    this.popularRespostaOuPadrao();
+  }
+
+  private popularRespostaOuPadrao(){
+    let respostaSalva = this.repoLocalStorage.obterResposta(this.slug)
     if(respostaSalva){
       this.resposta = JSON.parse(respostaSalva);
       this.marcaPresenca = this.resposta.marcaPresenca;
@@ -80,11 +86,14 @@ slug: string='';
       let aniversarioId = this.repoLocalStorage.obterAniversarioId(this.slug);
       confirmaPresenca.aniversarioId = aniversarioId;
 
+      this.bloquearBotoes = true;
+
       this.respostaService
         .salvarRespostaPresenca(confirmaPresenca)
         .subscribe({
           next: (resposta : ConfirmaPresenca) =>{
-            this.repoLocalStorage.salvarResposta(this.slug, JSON.stringify(resposta))
+            this.repoLocalStorage.salvarResposta(this.slug, JSON.stringify(resposta));
+            this.popularRespostaOuPadrao();
             if(resposta.marcaPresenca){
               this.mensagemService.showMessage('Sucesso','Confirmação salva, espero você na festa!');
               return;
@@ -94,6 +103,9 @@ slug: string='';
           error: (error) => {
             console.error(error);
             this.mensagemService.showMessage('Erro','Ocorreu um erro ao salvar o registro.', MessageType.error);
+          },
+          complete: () =>{
+            this.bloquearBotoes = false;
           }
         });
     }
@@ -104,4 +116,7 @@ slug: string='';
     return new Date(this.aniversariante.dataLimiteConfirmaPresenca) > new Date();
   }
 
+  get BotaoAtivo(){
+    return !this.formResposta.valid || !this.PodeConfirmacaoPresenca || this.bloquearBotoes;
+  }
 }

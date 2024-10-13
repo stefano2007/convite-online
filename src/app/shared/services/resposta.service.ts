@@ -10,7 +10,8 @@ import { ConfirmaPresenca } from '../Interfaces/confirmaPresenca';
 export class RespostaService {
 
   headersRequest = new HttpHeaders({
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'x-api-key': environment.API_KEY_PADRAO
   });
 
   constructor(
@@ -21,7 +22,7 @@ export class RespostaService {
 
     if(resposta.id){
       return this.httpClient
-      .put<ConfirmaPresenca>(`${environment.url_API}/respostas/${resposta.id}`,
+      .put<ConfirmaPresenca>(`${environment.url_API}/Respostas/${resposta.id}`,
       resposta,
       {
         headers: this.headersRequest
@@ -32,7 +33,7 @@ export class RespostaService {
     }
 
     return this.httpClient
-    .post<ConfirmaPresenca>(`${environment.url_API}/respostas`,
+    .post<ConfirmaPresenca>(`${environment.url_API}/Respostas`,
     resposta,
     {
       headers: this.headersRequest

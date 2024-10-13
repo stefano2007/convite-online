@@ -45,8 +45,8 @@
         <div *ngIf="!PodeConfirmacaoPresenca" class="alert alert-danger">
           Atenção, não pode mais ser modificado ou respondido, por favor entre em contato com anfitrião.
         </div>
-        <button class="btn btn-primary" *ngIf="marcaPresenca" [disabled]="!formResposta.valid || !PodeConfirmacaoPresenca">Confirmar Presença</button>
-        <button class="btn btn-danger" *ngIf="!marcaPresenca" [disabled]="!formResposta.valid || !PodeConfirmacaoPresenca">Informar Ausência</button>
+        <button class="btn btn-primary" *ngIf="marcaPresenca" [disabled]="BotaoAtivo">Confirmar Presença</button>
+        <button class="btn btn-danger" *ngIf="!marcaPresenca" [disabled]="BotaoAtivo">Informar Ausência</button>
       </div>
     </form>
   </div>

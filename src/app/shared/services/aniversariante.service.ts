@@ -11,7 +11,8 @@ import { AniversarianteDTO } from '../Interfaces/aniversarianteDTO';
 export class AniversarianteService {
 
   headersRequest = new HttpHeaders({
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'x-api-key': environment.API_KEY_PADRAO
   });
 
   constructor(

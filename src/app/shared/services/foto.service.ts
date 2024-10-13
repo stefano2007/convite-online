@@ -10,7 +10,8 @@ import { FotoDTO } from '../Interfaces/fotoDTO';
 export class FotoService {
 
   headersRequest = new HttpHeaders({
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'x-api-key': environment.API_KEY_PADRAO
   });
 
   constructor(

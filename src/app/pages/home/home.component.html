@@ -22,7 +22,7 @@
             <app-foto-card [foto]="foto"></app-foto-card>
         </div>
         <div class="col-md-12">
-          <a class="btn btn-lg px-5 btn-pink" href="/{{slug}}/fotos">Ver Mais</a>
+          <a class="btn btn-lg px-5 btn-pink" [routerLink]="['/', slug, 'fotos']">Ver Mais</a>
         </div>
       </div>
     </div>
@@ -63,7 +63,7 @@
             <div class="title text-center">
               <h2>Meu Aniversário esta chegando!</h2>
               <h2>Por favor, responda se conseguirá comparecer.</h2>
-              <a class="btn btn-outline-info btn-lg mt-3" href="/{{slug}}/confirmar-presenca">Responder Presença</a>
+              <a class="btn btn-outline-info btn-lg mt-3" [routerLink]="['/', slug, 'confirmar-presenca']">Responder Presença</a>
             </div>
           </div>
           <div class="col-md-5">

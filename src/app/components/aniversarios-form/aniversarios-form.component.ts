@@ -5,7 +5,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Aniversariante } from 'src/app/shared/Interfaces/aniversariante';
 import { AniversarianteDTO } from 'src/app/shared/Interfaces/aniversarianteDTO';
 import { AniversarianteService } from 'src/app/shared/services/aniversariante.service';
-import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 import { MessageService, MessageType } from 'src/app/shared/services/mensagem.service';
 
 @Component({
